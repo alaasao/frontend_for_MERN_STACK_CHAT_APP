@@ -34,7 +34,7 @@ const Login = () => {
     e.stopPropagation();
 
     const URL = `${import.meta.env.VITE_REACT_APP_BACKEND_URL}/auth/login`;
-    console.log("**************")
+    console.log("**************j")
     console.log(URL)
     console.log("**************")
     axios.post(URL, data, {
