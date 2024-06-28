@@ -34,9 +34,7 @@ const Login = () => {
     e.stopPropagation();
 
     const URL = `${import.meta.env.VITE_REACT_APP_BACKEND_URL}/auth/login`;
-    console.log("**************j")
-    console.log(URL)
-    console.log("**************")
+
     axios.post(URL, data, {
         withCredentials: true,
         headers: {
@@ -51,9 +49,7 @@ const Login = () => {
           navigate("/")
       })
       .catch((err) => {
-        console.log("#############")
-        console.log(err);
-        console.log("#############")
+  
         toast.error(err.response.data.msg);
       });
     };

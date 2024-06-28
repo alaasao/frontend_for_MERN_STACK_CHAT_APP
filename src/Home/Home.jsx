@@ -13,7 +13,11 @@ const Home = () => {
   const dispatch=useDispatch()
   useEffect(() => {
     axios.get(URL, {
-      withCredentials: true
+      withCredentials: true,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json'
+      }
     }).then((res)=> {
  dispatch(setUser(res.data.user))
     }).catch(err => {
