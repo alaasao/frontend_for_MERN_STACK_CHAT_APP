@@ -14,14 +14,18 @@ const Home = () => {
   useEffect(() => {
     axios.get(URL, {
       withCredentials: true,
+      credentials: 'include',
       headers: {
         'Access-Control-Allow-Origin': '*',
         'Content-Type': 'application/json'
+        
       }
     }).then((res)=> {
  dispatch(setUser(res.data.user))
     }).catch(err => {
+      console.log("########")
       console.log(err)
+      console.log("########")
     })
   },[])
 
