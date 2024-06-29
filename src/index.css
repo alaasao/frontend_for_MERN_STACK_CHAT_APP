@@ -4,3 +4,8 @@
 body{
     background-color: #E0E7EE;
 }
+*{
+    box-sizing: border-box ;
+    margin: 0px;
+    padding: 0
+}

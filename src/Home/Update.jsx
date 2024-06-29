@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 
 import { setUser } from "../redux/userSlice";
 
-const Update = ({track,setTrack}) => {
+const Update = ({setShowUpdate}) => {
   const [data, setData] = useState(useSelector((state) => state.user));
   const [uploadPhoto, setUploadPhoto] = useState({ url: data.profilePic });
   const dispatch=useDispatch()
@@ -63,7 +63,7 @@ const Update = ({track,setTrack}) => {
 
           dispatch(setUser(res.data.user))
        
-            setTrack(!track)
+            setShowUpdate(prev=>!prev)
           })
           .catch((err) => {
             toast.error(err.response.data.msg);
@@ -87,8 +87,8 @@ const Update = ({track,setTrack}) => {
             placeholder="Enter the Name"
           />
         </div>
-        <div className="flex flex-col w-full gap-1">
-          <label htmlFor="profile_pic " className="mt-[10px]">
+        <div className="flex flex-col w-full gap-1 ">
+          <label htmlFor="profile_pic" className="mt-[10px] cursor-pointer">
             Photo :
             <div className="flex items-center gap-[5px]  my-[10px]">
               <img
@@ -119,7 +119,7 @@ const Update = ({track,setTrack}) => {
               </div>
               <div className="w-full h-[1px] border border-b-gray-100 mt-[10px]"></div>
               <div className="flex items-center justify-end gap-[8px] mt-[10px] cursor-pointer">
-                  <div className="flex justify-center items-center border border-[#008DA5] text-[#008DA5] rounded-lg h-[40px] w-[80px]  " onClick={()=> {setTrack(prev=>!prev)} }>Cancel</div>
+                  <div className="flex justify-center items-center border border-[#008DA5] text-[#008DA5] rounded-lg h-[40px] w-[80px]  " onClick={()=> {setShowUpdate(prev=>!prev)} }>Cancel</div>
                   <div className="flex justify-center items-center  bg-[#008DA5] text-white rounded-lg h-[40px] w-[80px]  " onClick={submit}>Save</div>
             
               </div>

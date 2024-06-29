@@ -1,17 +1,18 @@
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
-import { BrowserRouter } from "react-router-dom";
+import { RouterProvider } from "react-router-dom";
 import Nav from "./layout/Nav.jsx";
 import { store } from "./redux/store";
 import { Provider } from "react-redux";
-import SideBar from "./layout/SideBar.jsx";
+
+import router from "./routes/routes.jsx";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
-    <BrowserRouter>
+    <RouterProvider router={router}>
       <Nav />
-      <SideBar/>
+
       <App />
-    </BrowserRouter>
+    </RouterProvider>
   </Provider>
 );
