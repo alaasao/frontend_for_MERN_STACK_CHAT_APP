@@ -10,6 +10,7 @@ import Search from "../Home/Search";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { setToken, setUser } from "../redux/userSlice";
+import Avatar from "../Home/Avatar";
 
 const SideBar = () => {
   const { pathname } = useLocation();
@@ -41,7 +42,7 @@ const SideBar = () => {
   };
 
   return (
-    <div className={` h-full flex w-[400px] min-h-screen`}>
+    <div className={` h-full flex lg:w-[400px] min-h-screen max-lg:w-full`}>
       <div className="w-[70px] h-full flex flex-col justify-between min-h-screen py-[20px] cursor-pointer">
         <div className="h-[140px]  grid grid-rows-2">
           <div className="flex items-center justify-center hover:bg-slate-300 text-[#3D4A5F] text-2xl">
@@ -59,11 +60,7 @@ const SideBar = () => {
             className="flex items-center justify-center "
             onClick={() => setShowUpdate(!showUpdate)}
           >
-            <img
-              src={user.profilePic}
-              alt=""
-              className="w-[40px] h-[40px] rounded-full"
-            />
+            <Avatar url={user.profilePic} width={"40px"} id={user._id} />
           </div>
           <div
             className="flex items-center justify-center hover:bg-slate-300 text-[#3D4A5F] text-2xl"
@@ -77,7 +74,7 @@ const SideBar = () => {
         <div className="h-[90px] max-md:h-[80px] w-full flex items-center font-bold text-xl pl-[20px] border-b-[2px] ">
           Messages
         </div>
-        <div className="w-full h-[calc(100vh-90px)] overflow-x-hidden overflow-y-scroll scollbar ">
+        <div className="w-full h-[calc(100vh-90px)] overflow-x-hidden overflow-y-scroll scrollbar ">
           {conversations.length === 0 && (
             <div className="flex flex-col items-center w-full h-full pt-[50px]">
               <GoArrowUpLeft className="text-6xl text-[#3D4A5F] font-bold" />

@@ -45,7 +45,8 @@ const Login = () => {
       .then((res) => {
           toast.success("user loged in");
  
-          dispatch(setToken(res.data.token))
+        dispatch(setToken(res.data.token))
+        localStorage.setItem("token",res.data.token)
           navigate("/")
       })
       .catch((err) => {

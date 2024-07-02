@@ -6,6 +6,8 @@ const initialState = {
   email: "",
   profilePic: "",
   token: "",
+  online: [],
+  socketConnection:null
 };
 
 export const userSlice = createSlice({
@@ -28,10 +30,17 @@ export const userSlice = createSlice({
         (state.profilePic = ""),
         (state.token = "");
     },
+    setOnline: (state, action) => {
+   
+      state.online=action.payload
+    },
+    setSocketConnection: (state, action) => {
+      state.socketConnection=action.payload
+    }
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { setToken,setUser,logout} = userSlice.actions;
+export const { setToken,setUser,logout,setOnline,setSocketConnection} = userSlice.actions;
 
 export default userSlice.reducer;

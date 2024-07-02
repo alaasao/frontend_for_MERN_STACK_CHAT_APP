@@ -1,5 +1,5 @@
 const url = `https://api.cloudinary.com/v1_1/${import.meta.env.VITE_CLOUDNAME}/auto/upload`
-console.log(url)
+
 const uploadFile = async(file)=>{
     const formData = new FormData()
     formData.append('file',file)
@@ -11,7 +11,7 @@ const uploadFile = async(file)=>{
     })
 
     const jj = await response.json()
-    console.log(jj)
+  
 return jj
 
   
