@@ -34,19 +34,13 @@ const Login = () => {
     e.stopPropagation();
 
     const URL = `${import.meta.env.VITE_REACT_APP_BACKEND_URL}/auth/login`;
-    let headers = new Headers();
 
-    headers.append('Content-Type', 'application/json');
-    headers.append('Accept', 'application/json');
-  
-    headers.append('Access-Control-Allow-Origin', 'https://frontend-for-mern-stack-chat-app.vercel.app/');
-    headers.append('Access-Control-Allow-Credentials', 'true');
-  
-    headers.append('GET', 'POST', 'OPTIONS');
-  
     axios.post(URL, data, {
         withCredentials: true,
-        headers:headers
+        headers: {
+            'Access-Control-Allow-Origin': '*', 
+            'Content-Type': 'application/json'
+        }
     })
       .then((res) => {
           toast.success("user loged in");
@@ -56,7 +50,8 @@ const Login = () => {
           navigate("/")
       })
       .catch((err) => {
-  console.log("jj",err)
+  
+        toast.error(err.response.data.msg);
       });
     };
    
