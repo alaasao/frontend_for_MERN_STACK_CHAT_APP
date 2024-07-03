@@ -39,7 +39,7 @@ const Login = () => {
         withCredentials: true,
         headers: {
             'Access-Control-Allow-Origin':'*', 
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
             'Access-Control-Allow-Headers':'Origin, Content-Type, X-Auth-Token'
         }
     })
