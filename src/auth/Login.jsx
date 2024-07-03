@@ -37,10 +37,7 @@ const Login = () => {
 
     axios.post(URL, data, {
         withCredentials: true,
-        headers: {
-            'Access-Control-Allow-Origin':'*', 
-            'Content-Type': 'application/json'
-        }
+        
     })
       .then((res) => {
           toast.success("user loged in");
