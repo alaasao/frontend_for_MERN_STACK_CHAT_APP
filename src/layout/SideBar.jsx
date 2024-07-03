@@ -73,6 +73,7 @@ const SideBar = () => {
       })
       .then((res) => {
         toast.success("user logged out");
+        
         dispatch(setUser({}));
         dispatch(setToken(""));
         navigate("/login");

@@ -38,7 +38,7 @@ const Login = () => {
     axios.post(URL, data, {
         withCredentials: true,
         headers: {
-            'Access-Control-Allow-Origin': '*', 
+            'Access-Control-Allow-Origin':'https://frontend-for-mern-stack-chat-app.vercel.app', 
             'Content-Type': 'application/json'
         }
     })
