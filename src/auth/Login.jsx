@@ -56,8 +56,7 @@ const Login = () => {
           navigate("/")
       })
       .catch((err) => {
-  
-        toast.error(err.response.data.msg);
+  console.log("jj",err)
       });
     };
    
