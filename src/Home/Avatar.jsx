@@ -6,7 +6,7 @@ const Avatar = ({ url, width,id }) => {
 
   return (
     <div className='relative'>
-          <img src={url} alt="" className={`  rounded-full w-[${width}] h-[${width}]  `} />
+          <img src={url} alt="" className={`  rounded-full w-[${width}] h-[${width}] max-md:w-[40px] max-md:h-[40px]  `} />
        {isOnline &&  <div className='bg-green-600 rounded-full w-[15px] h-[15px] right-0 absolute z-10 top-[70%]'></div>}   
     </div>
   )

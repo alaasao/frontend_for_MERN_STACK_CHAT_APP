@@ -36,9 +36,13 @@ const Search = ({ setShowSearch }) => {
     );
   }, [searchKey]);
   const navigate = useNavigate();
+  const handleChildClick = (event) => {
+    console.log("Child clicked!");
+    event.stopPropagation(); // Prevent bubbling to parent
+  };
   return (
-    <div className="absolute z-10 flex flex-col items-center justify-center w-full h-full gap-[10px] bg-[#d1d5db91]  transition-all  origin-top duration-2000 ">
-      <div className="flex items-center justify-between bg-white w-[600px] max-lg:w-[80%] h-[50px] rounded-lg">
+    <div className="absolute z-10 flex flex-col items-center justify-center w-full h-full gap-[10px] bg-[#d1d5db91]  transition-all  origin-top duration-2000 " onClick={()=>{setShowSearch(false)}}>
+      <div className="flex items-center justify-between bg-white w-[600px] max-lg:w-[80%] h-[50px] rounded-lg" onClick={handleChildClick}>
         <input
           type="text"
           className="w-full h-full outline-none pl-[10px] "
@@ -53,13 +57,13 @@ const Search = ({ setShowSearch }) => {
           <CiSearch className="text-2xl font-semibold" />
         </div>
       </div>{" "}
-      <div className="w-[600px] h-[600px] max-lg:w-[80%] bg-white rounded-lg overflow-y-scroll scrollbar  flex flex-col  p-[30px]">
+      <div className="w-[600px] h-[600px] max-lg:w-[80%] bg-white rounded-lg overflow-y-scroll scrollbar  flex flex-col  p-[30px]" onClick={handleChildClick}>
         {allUsers.map((e) => {
           return (
             <SearchCard
               user={e}
               key={e._id}
-              onClick={() => setSearchShow(false)}
+              onClick={() => setShowSearch(false)}
             />
           );
         })}
